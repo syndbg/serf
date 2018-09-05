@@ -440,9 +440,9 @@ func (s *Serf) KeyManager() *KeyManager {
 // If coalesce is enabled, nodes are allowed to coalesce this event.
 // Coalescing is only available starting in v0.2
 func (s *Serf) UserEvent(name string, payload []byte, coalesce bool) error {
-	// Check the size limit
+	// Check size before encoding to prevent needless encoding and return early if it's over the specified limit.
 	if len(name)+len(payload) > s.config.UserEventSizeLimit {
-		return fmt.Errorf("user event exceeds limit of %d bytes", s.config.UserEventSizeLimit)
+		return fmt.Errorf("user event exceeds limit of %d bytes before encoding", s.config.UserEventSizeLimit)
 	}
 
 	// Create a message
@@ -452,16 +452,24 @@ func (s *Serf) UserEvent(name string, payload []byte, coalesce bool) error {
 		Payload: payload,
 		CC:      coalesce,
 	}
-	s.eventClock.Increment()
-
-	// Process update locally
-	s.handleUserEvent(&msg)
 
 	// Start broadcasting the event
 	raw, err := encodeMessage(messageUserEventType, &msg)
 	if err != nil {
 		return err
 	}
+
+	// Check the size after encoding to be sure again that
+	// we're not attempting to send over the specified size limit.
+	if len(raw) > s.config.UserEventSizeLimit {
+		return fmt.Errorf("user event exceeds limit of %d bytes after encoding", s.config.UserEventSizeLimit)
+	}
+
+	s.eventClock.Increment()
+
+	// Process update locally
+	s.handleUserEvent(&msg)
+
 	s.eventBroadcasts.QueueBroadcast(&broadcast{
 		msg: raw,
 	})
