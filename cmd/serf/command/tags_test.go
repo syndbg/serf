@@ -4,7 +4,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/hashicorp/serf/client"
+	"github.com/syndbg/serf/client"
 	"github.com/mitchellh/cli"
 )
 

@@ -7,7 +7,7 @@ import (
 	"github.com/armon/go-metrics"
 	"github.com/hashicorp/go-msgpack/codec"
 	"github.com/hashicorp/memberlist"
-	"github.com/hashicorp/serf/coordinate"
+	"github.com/syndbg/serf/coordinate"
 )
 
 // pingDelegate is notified when memberlist successfully completes a direct ping

@@ -6,7 +6,7 @@ import (
 	"testing"
 
 	"github.com/hashicorp/memberlist"
-	"github.com/hashicorp/serf/testutil"
+	"github.com/syndbg/serf/testutil"
 )
 
 func testKeyring() (*memberlist.Keyring, error) {

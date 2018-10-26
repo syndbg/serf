@@ -6,8 +6,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/hashicorp/serf/client"
-	"github.com/hashicorp/serf/serf"
+	"github.com/syndbg/serf/client"
+	"github.com/syndbg/serf/serf"
 	"github.com/mitchellh/cli"
 )
 

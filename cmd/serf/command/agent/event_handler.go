@@ -7,7 +7,7 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/hashicorp/serf/serf"
+	"github.com/syndbg/serf/serf"
 )
 
 // EventHandler is a handler that does things when events happen.

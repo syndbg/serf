@@ -5,7 +5,7 @@ import (
 	"time"
 
 	"github.com/hashicorp/memberlist"
-	"github.com/hashicorp/serf/testutil"
+	"github.com/syndbg/serf/testutil"
 )
 
 func TestSerf_joinLeave_ltime(t *testing.T) {

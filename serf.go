@@ -19,7 +19,7 @@ import (
 	"github.com/armon/go-metrics"
 	"github.com/hashicorp/go-msgpack/codec"
 	"github.com/hashicorp/memberlist"
-	"github.com/hashicorp/serf/coordinate"
+	"github.com/syndbg/serf/coordinate"
 )
 
 // These are the protocol versions that Serf can _understand_. These are

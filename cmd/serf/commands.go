@@ -4,8 +4,8 @@ import (
 	"os"
 	"os/signal"
 
-	"github.com/hashicorp/serf/cmd/serf/command"
-	"github.com/hashicorp/serf/cmd/serf/command/agent"
+	"github.com/syndbg/serf/cmd/serf/command"
+	"github.com/syndbg/serf/cmd/serf/command/agent"
 	"github.com/mitchellh/cli"
 )
 

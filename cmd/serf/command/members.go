@@ -6,7 +6,7 @@ import (
 	"net"
 	"strings"
 
-	"github.com/hashicorp/serf/cmd/serf/command/agent"
+	"github.com/syndbg/serf/cmd/serf/command/agent"
 	"github.com/mitchellh/cli"
 	"github.com/ryanuber/columnize"
 )
